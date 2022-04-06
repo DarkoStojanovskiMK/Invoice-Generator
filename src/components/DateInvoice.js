@@ -18,7 +18,7 @@ const DateInvoice = () => {
 
   return (
     <Row className="date-invoice">
-      <Col xs={6} md={6} lg={4} className="invoice-date">
+      <Col xs={4} md={6} lg={5} className="invoice-date">
         <Row className="invoice-date-input">
           <Col className="invoice-date-div">
             <div className="invoice-label">INVOICE NR</div> <span>:</span>
@@ -56,7 +56,7 @@ const DateInvoice = () => {
           </Col>
         </Row>
       </Col>
-      <Col xs={6} md={4} className="d-flex justify-content-end mt-2">
+      <Col xs={8} md={5} className="d-flex justify-content-end mt-2">
         <div className="invoice-pic-div">
           {image && (
             <img

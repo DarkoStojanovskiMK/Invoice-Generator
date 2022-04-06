@@ -6,12 +6,12 @@ const NewItem = ({ description, units, unitPrice, amount, GST, id }) => {
   const { deleteItem } = useContext(InvoiceContext);
 
   return (
-    <Row className="mt-2 date-invoice  ">
-      <Col sm={4} lg={7} xl={4} style={{ paddingRight: "1rem" }}>
+    <Row className="new-date-invoice  ">
+      <Col xs={1} sm={3} lg={7} xl={4} className=" new-item-desc-col">
         {description}
       </Col>
-      <Col sm={8} lg={5} xl={4} className="d-flex">
-        <Col xs={10} className="d-flex justify-content-end">
+      <Col xs={11} sm={9} lg={5} xl={5} className="d-flex  align-items-center ">
+        <Col xs={10} className="d-flex justify-content-end unit-col">
           <div className="unitDiv">{units}</div>
           <div className="unitDiv">{unitPrice}</div>
           <div className="unitDiv">{amount}</div>
@@ -22,11 +22,7 @@ const NewItem = ({ description, units, unitPrice, amount, GST, id }) => {
           </div>
         </Col>
       </Col>
-      <Row>
-        <Col>
-          <hr />
-        </Col>
-      </Row>
+      <hr />
     </Row>
   );
 };

@@ -26,11 +26,11 @@ const Description = () => {
     <>
       {showModal && <Modal onClick={seeModal} />}
       <Row className=" date-invoice">
-        <Col sm={4} lg={7} xl={4} style={{ paddingRight: "1rem" }}>
+        <Col xs={1} sm={3} lg={7} xl={4} className="invoice-label">
           <div className="invoice-label">DESCRIPTION</div>
         </Col>
-        <Col sm={8} lg={5} xl={4} className="d-flex">
-          <Col xs={10} className="d-flex justify-content-end">
+        <Col xs={11} sm={9} lg={5} xl={5} className="d-flex">
+          <Col xs={10} className=" unit-col">
             <div className="unitsDivLabel">
               <div className="invoice-label">UNITS</div>
             </div>
@@ -44,11 +44,12 @@ const Description = () => {
             </div>
           </Col>
           <Col xs={2} className="d-flex justify-content-end">
-            <div className="unitsDivLabel"></div>
+            <div className="unitsDivLabelEmpty"></div>
           </Col>
         </Col>
+        <hr />
       </Row>
-      <hr />
+
       {invoiceItems.map((item, index) => {
         const { description, units, unitPrice, amount, GST, id } = item;
 

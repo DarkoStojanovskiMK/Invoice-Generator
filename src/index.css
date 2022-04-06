@@ -34,6 +34,10 @@ h4{
   letter-spacing: 1px;
 }
 
+.row.date-invoice hr{
+  margin-bottom:0;
+  padding:0;
+}
 
 /* ------------------------header------------------------------ */
 .header{
@@ -103,7 +107,12 @@ background-color: #dadbdd91;
 .row.date-invoice{
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;;
+  margin-top: 25px;
+  min-width: 350px;
+}
+.row.date-invoice hr{
+  margin-bottom: 8px;
+  padding: 0 !important;
 }
 .row.invoice-date-input{
   display: flex;
@@ -111,6 +120,8 @@ background-color: #dadbdd91;
   align-items: center;
   margin-top: 0.2rem;
 }
+
+
 .col.invoice-date-div{
   display:flex;
   justify-content: first baseline;
@@ -211,16 +222,22 @@ background-color: #dadbdd91;
 
 .unitsDivLabel{
   margin-left:15px;
-  width:80px;
+  width:90px;
+  text-align: end;
 }
 
 .unitsSubtext{
   font-size: small;
   padding: 0;
-  margin-right: 15px;
+  margin-bottom:5px;
   color: rgb(174, 175, 176);
   font-weight: bold;
   float: right;
+}
+
+.unit-col{
+  display: flex;
+  justify-content: end;
 }
 
 .invoiceBtn{
@@ -230,6 +247,7 @@ background-color: #dadbdd91;
   padding: 0.6rem 0.7rem;
   font-weight: 400;
   font-size:0.9rem;
+  margin-top: 10px;
 }
 .invoiceBtn:hover{
   background-color: rgba(234, 237, 241, 0.577);
@@ -369,21 +387,60 @@ background-color: #dadbdd91;
 
 /* -------------------------NEW ITEM-------------- */
 
+.row.new-date-invoice{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 8px 0; */
+}
+.new-date-invoice hr{
+  margin:8px auto;
+  padding:0 !important;
+}
 
 .unitDiv{
   
   display: flex;
-  justify-content: center;
+  justify-content: end;
   margin-left:15px;
-  width: 80px;
+  width: 90px;
   max-width:100px;
 }
 
 .unitDelete{
-  float: right;
-  width:60px;
-  margin-left: 30px;
+  width:50px;
   color: red;
   cursor: pointer;
 }
+.new-item-desc-col{
+  display:flex;
+  align-items:center;
+}
 
+/* -------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .new-item-desc-coll{
+align-items: flex-end;
+  }
+  .unit-col{
+    justify-content: end;
+    max-width: 227px !important;
+  }
+   
+  .unitsDivLabel{
+    width:40px
+  }
+  .unitsDivLabelEmpty{
+    width: 0px;
+  }
+
+  .unitDiv{
+    width:40px
+  }
+  .unitDelete{
+    width: 35px;
+  }
+  .row.new-date-invoice{
+    margin:0 !important;
+  }
+}
