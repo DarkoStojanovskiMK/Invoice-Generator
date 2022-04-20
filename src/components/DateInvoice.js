@@ -1,10 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { Row, Col, Button, Form } from "react-bootstrap";
+import InvoiceContext from "../InvoiceContext";
 
 const DateInvoice = () => {
-  const todayDate = new Date().toString().slice(0, 15);
+  const {
+    image,
+    setImage,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    invoiceNr,
+    setInvoiceNr,
+  } = useContext(InvoiceContext);
+
+  // -------------------------image-----------------------------------
   const refInput = useRef(null);
-  const [image, setImage] = useState("");
+
   const onClick = () => {
     refInput.current.click();
   };
@@ -15,19 +27,21 @@ const DateInvoice = () => {
       setImage(files[0]);
     }
   };
+  // --------------------------image-------------------------------------
 
   return (
     <Row className="date-invoice">
-      <Col xs={4} md={6} lg={5} className="invoice-date">
+      <Col xs={8} md={6} lg={5} className="invoice-date">
         <Row className="invoice-date-input">
           <Col className="invoice-date-div">
             <div className="invoice-label">INVOICE NR</div> <span>:</span>
           </Col>
           <Col>
             <input
-              className="invoice-input"
+              className="date-invoice-input"
               type="text"
-              placeholder={new Date().getMilliseconds()}
+              value={invoiceNr}
+              onChange={(e) => setInvoiceNr(e.target.value)}
             />
           </Col>
         </Row>
@@ -37,9 +51,10 @@ const DateInvoice = () => {
           </Col>
           <Col>
             <input
-              className="invoice-input"
-              type="text"
-              placeholder={todayDate}
+              className="date-invoice-input"
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
             />
           </Col>
         </Row>
@@ -49,21 +64,22 @@ const DateInvoice = () => {
           </Col>
           <Col>
             <input
-              className="invoice-input"
-              type="text"
-              placeholder={todayDate}
+              className="date-invoice-input"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
             />
           </Col>
         </Row>
       </Col>
-      <Col xs={8} md={5} className="d-flex justify-content-end mt-2">
+      <Col xs={4} md={5} className="d-flex justify-content-end mt-2">
         <div className="invoice-pic-div">
           {image && (
             <img
               className="imgAvatar"
               src={URL.createObjectURL(image)}
               alt=""
-              style={{ zIndex: "1" }}
+              style={{ zIndex: "4" }}
             />
           )}
           <div className="divCamera">

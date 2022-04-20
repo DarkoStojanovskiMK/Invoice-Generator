@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import InvoiceContext from "../InvoiceContext";
 
-const Header = ({ handlePrint }) => {
+const Header = () => {
+  const {
+    printInvoice,
+    image,
+    invoiceNr,
+    startDate,
+    endDate,
+    invoiceItems,
+    items,
+    billingCompany,
+    yourCompany,
+  } = useContext(InvoiceContext);
+
   return (
     <div className="header">
       <div>
@@ -10,7 +23,19 @@ const Header = ({ handlePrint }) => {
       </div>
       <div className="icons">
         <div className="txtBtn">
-          <div onClick={handlePrint} className="icon">
+          <div
+            onClick={printInvoice({
+              image,
+              invoiceNr,
+              startDate,
+              endDate,
+              invoiceItems,
+              items,
+              billingCompany,
+              yourCompany,
+            })}
+            className="icon"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"

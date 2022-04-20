@@ -7,7 +7,7 @@ import NewItem from "./NewItem";
 const Description = () => {
   const [showModal, setShowModal] = useState(false);
   const { invoiceItems } = useContext(InvoiceContext);
-  const [currency, setCurrency] = useState();
+  const [currency, setCurrency] = useState("$");
   const seeModal = () => {
     setShowModal(!showModal);
   };
@@ -26,10 +26,16 @@ const Description = () => {
     <>
       {showModal && <Modal onClick={seeModal} />}
       <Row className=" date-invoice">
-        <Col xs={1} sm={3} lg={7} xl={4} className="invoice-label">
+        <Col xs={2} sm={3} lg={7} xl={4} className="invoice-label">
           <div className="invoice-label">DESCRIPTION</div>
         </Col>
-        <Col xs={11} sm={9} lg={5} xl={5} className="d-flex">
+        <Col
+          xs={10}
+          sm={9}
+          lg={5}
+          xl={5}
+          className="d-flex justify-content-end px-1"
+        >
           <Col xs={10} className=" unit-col">
             <div className="unitsDivLabel">
               <div className="invoice-label">UNITS</div>
@@ -81,12 +87,16 @@ const Description = () => {
             </Col>
             <Col xs={6} className="d-grid justify-content-end">
               <div>
-                {currency}
-                {allAmount.toFixed(2)}
+                <span>
+                  {currency}
+                  {allAmount.toFixed(2)}
+                </span>
               </div>
               <div className="amountGST">
-                {currency}
-                {gst}
+                <span>
+                  {currency}
+                  {gst}
+                </span>
               </div>
             </Col>
           </Row>
@@ -99,19 +109,10 @@ const Description = () => {
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
               >
-                <option></option>
-                <option value="&#8364;">
-                  <span>&#8364;</span>
-                </option>
-                <option value="&#36;">
-                  <span>&#36;</span>
-                </option>
-                <option value="&#163;">
-                  <span>&#163;</span>
-                </option>
-                <option value="&#165;">
-                  <span>&#165;</span>
-                </option>
+                <option value="&#8364;">&euro;</option>
+                <option value="&#36;">&#36;</option>
+                <option value="&#163;">&pound;</option>
+                <option value="&#165;">&yen;</option>
               </select>
             </Col>
           </Row>

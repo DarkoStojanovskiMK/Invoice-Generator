@@ -7,15 +7,15 @@ import Description from "./components/Description";
 import { useReactToPrint } from "react-to-print";
 
 const HomeScreen = () => {
-  const componentRef = useRef();
+  // const componentRef = useRef();
 
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
 
   return (
-    <Container ref={componentRef}>
-      <Header handlePrint={handlePrint} />
+    <Container>
+      <Header />
       <DateInvoice />
       <Shipping />
       <Description />

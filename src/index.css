@@ -82,7 +82,7 @@ h4{
   width: 130px;
   height:35px;
   border-radius: 10px;
-  z-index: 2;
+  z-index: 5;
 
 }
 .icon:hover{
@@ -108,7 +108,7 @@ background-color: #dadbdd91;
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
-  min-width: 350px;
+  min-width: 290px;
 }
 .row.date-invoice hr{
   margin-bottom: 8px;
@@ -139,9 +139,22 @@ background-color: #dadbdd91;
   border: transparent;
   height:40px;
   border-radius: 5px;
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 .invoice-input:focus{
+  outline: rgb(100, 157, 215) 2px solid;
+  background-color: white;
+}
+
+.date-invoice-input{
+  background-color: rgb(236, 242, 248);
+  border: transparent;
+  height:40px;
+  border-radius: 5px;
+  padding: 0 1rem;
+  width: 200px;
+}
+.date-invoice-input:focus{
   outline: rgb(100, 157, 215) 2px solid;
   background-color: white;
 }
@@ -277,8 +290,26 @@ background-color: #dadbdd91;
 }
 /* ---------------------modal------------- */
 
+.row.main-modal-div{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100vw;
+  height: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  
+}
 .row.overlay{
   background: #000000e0;
+  padding: 0;
+  margin: 0;
   width: 100vw;
   height: auto;
   position: fixed;
@@ -294,13 +325,15 @@ background-color: #dadbdd91;
   
 }
 
+
 .row.modalDiv{
   position: relative;
+  margin: auto;
   width:550px;
   height: 450px;
   background-color: white;
   opacity: 1;
-  z-index: 10;
+  z-index: 12;
   border-radius: 10px;
 }
 
@@ -375,6 +408,7 @@ background-color: #dadbdd91;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 15;
 
 }
 
@@ -419,8 +453,16 @@ background-color: #dadbdd91;
 
 /* -------------------------------------------------------------- */
 @media screen and (max-width: 480px) {
-  .new-item-desc-coll{
-align-items: flex-end;
+
+  .row.new-date-invoice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 8px 0; */
+  }
+  
+  .new-item-desc-col{
+    align-items: flex-end;
   }
   .unit-col{
     justify-content: end;
@@ -442,5 +484,27 @@ align-items: flex-end;
   }
   .row.new-date-invoice{
     margin:0 !important;
+  }
+
+  .invoice-label{
+    font-size: 0.8rem;
+  }
+  .unitDiv{
+    font-size: 0.8rem;
+  }
+  .unitDelete{
+    font-size: 0.75rem;
+    padding-left: 0.5rem;
+  }
+  .invoice-pic-div{
+    width: 90px;
+    height: 90px;
+  }
+  .divCamera{
+    position: absolute;
+    top:30%;
+    left:18%;
+    z-index:2;
+    opacity: 0.6;
   }
 }
